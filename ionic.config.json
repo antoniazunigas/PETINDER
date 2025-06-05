@@ -1,0 +1,7 @@
+{
+  "name": "PETINDER",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
