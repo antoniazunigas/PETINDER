@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/mascotas-adopcion"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-avatar>
+        <img src="assets/logo.png" alt="Logo" />
+      </ion-avatar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  [fullscreen]="true"
+  class="formulario-content"
+  style="background-image: url('assets/fondo1.jpg'); background-size: cover;"
+>
+  <div class="form-title-container">
+    <h1>Complete el formulario</h1>
+  </div>
+
+  <ion-card class="formulario-card">
+    <ion-card-content>
+      <form [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input formControlName="nombre" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Apellidos</ion-label>
+          <ion-input formControlName="apellidos" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Correo</ion-label>
+          <ion-input type="email" formControlName="correo" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Teléfono</ion-label>
+          <ion-input type="tel" formControlName="telefono" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Fecha de nacimiento</ion-label>
+          <ion-input
+            readonly
+            placeholder="Selecciona fecha"
+            [value]="formulario.get('fechaNacimiento')?.value | date:'dd/MM/yyyy'"
+            (click)="seleccionarFecha()"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Región</ion-label>
+          <ion-input formControlName="region" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Comuna</ion-label>
+          <ion-input formControlName="comuna" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Dirección</ion-label>
+          <ion-input formControlName="direccion" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-checkbox slot="start" formControlName="aceptaTerminos"></ion-checkbox>
+          <ion-label>
+            Acepto los 
+            <a (click)="irAComoAdoptar()" style="color: #3880ff; font-weight: bold; text-decoration: underline;">
+              términos y condiciones
+            </a>
+          </ion-label>
+        </ion-item>
+
+
+        <ion-button expand="block" color="success" type="submit" [disabled]="!formulario.valid">
+          Enviar Solicitud
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+

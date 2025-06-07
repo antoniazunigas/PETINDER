@@ -31,7 +31,7 @@
                 "output": "./svg"
               }
             ],
-            "styles": ["src/global.scss", "src/theme/variables.scss"],
+            "styles": ["src/global.scss", "src/theme/variables.scss", "node_modules/swiper/swiper-bundle.min.css"],
             "scripts": []
           },
           "configurations": {
@@ -136,7 +136,8 @@
   "cli": {
     "schematicCollections": [
       "@ionic/angular-toolkit"
-    ]
+    ],
+    "analytics": "523c10f6-dab8-4df0-b7d0-d5c79fc04d51"
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {

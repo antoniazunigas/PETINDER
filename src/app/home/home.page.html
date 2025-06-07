@@ -1,20 +1,93 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title class="custom-title">PETINDER</ion-title>
+
+    <ion-buttons slot="end" class="logo-header-container">
+      <img src="/assets/logo.png" alt="Logo Petinder" class="logo-header" />
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content class="ion-padding home-content" fullscreen [style.backgroundImage]="'url(/assets/fondo1.jpg)'">
+  <div class="welcome-message">
+    <h1>Tu nuevo mejor amigo está esperando por ti.</h1>
+    <h2>¡Hola, {{ usuario }}!</h2>
   </div>
+
+  <div class="highlight-section">
+    <p class="info-mascotas">Actualmente hay <strong>10 mascotas</strong> esperando un hogar lleno de amor.</p>
+  </div>
+
+  <!-- Swiper Carousel -->
+  <swiper
+    [loop]="true"
+    [autoplay]="{ delay: 4000, disableOnInteraction: false }"
+    [speed]="400"
+    class="pet-carousel"
+  >
+    <ng-template swiperSlide *ngFor="let foto of fotosMascotas">
+      <img [src]="foto" alt="Foto de mascota" class="carousel-img" />
+    </ng-template>
+  </swiper>
+
+  <div class="benefits-section">
+  <div class="benefits-container">
+    <div class="text">
+      <h3>Beneficios de adoptar</h3>
+      <ul>
+        <li>Salvas una vida.</li>
+        <li>Ayudas a combatir el abandono.</li>
+        <li>Recibes amor incondicional.</li>
+        <li>Ganas un compañero leal.</li>
+        <li>Das ejemplo a otros.</li>
+        <li>Reduces el negocio de la crianza indiscriminada.</li>
+      </ul>
+    </div>
+    <div class="image">
+      <img src="/assets/corazon.png" alt="Adopta una mascota" />
+    </div>
+  </div>
+</div>
+
+  <div class="sabias-esto-section">
+  <h3>¿Sabías esto?</h3>
+  <div class="sabias-esto-content">
+    <!-- Lado izquierdo: texto principal -->
+    <div class="sabias-esto-text">
+      <p><strong>Perros y gatos negros:</strong> Son los más difíciles de adoptar en muchos refugios...</p>
+      <p><strong>Animales adultos o senior:</strong> Los perros o gatos mayores suelen ser menos adoptados...</p>
+      <p><strong>Animales con discapacidades o condiciones especiales:</strong> Aquellos con problemas de movilidad...</p>
+      <p><strong>Animales con comportamientos considerados difíciles:</strong> Los que muestran miedo o timidez...</p>
+    </div>
+
+    <!-- Lado derecho: imagen + llamado a la acción -->
+    <div class="sabias-esto-imagen">
+      <img src="assets/stop.png" alt="Mascota esperando adopción" />
+      <p class="call-to-action">
+        <em>Pero esta realidad no puede continuar. Por eso, te invitamos a reflexionar y ser parte del cambio, ayudando a que más personas comprendan la importancia de darles una segunda oportunidad</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+  <ion-footer class="custom-footer">
+  <ion-toolbar>
+    <div class="footer-content">
+      <p>🌟 Adoptar es un acto de amor que cambia vidas, incluida la tuya.</p>
+      <p class="author">Creado con ❤️ por Antonia Zúñiga Sepúlveda</p>
+    </div>
+  </ion-toolbar>
+</ion-footer>
 </ion-content>
+
+
+
+
+

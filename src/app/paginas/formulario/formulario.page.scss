@@ -1,0 +1,51 @@
+.form-title-container {
+  text-align: center;
+  margin: 20px 0;
+  color: #0c7434;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 1.8rem;
+  text-shadow: 1px 1px 3px rgba(32, 3, 3, 0.3);
+}
+
+
+.formulario-content {
+  --background: none;
+  position: relative;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.formulario-content::before {
+  content: '';
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.35;
+  z-index: 0;
+}
+
+
+.formulario-card {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  z-index: 1;
+  background: rgba(43, 82, 51, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+ion-item {
+  --background: transparent;
+  --ion-item-background: transparent;
+  z-index: 2;
+}
+

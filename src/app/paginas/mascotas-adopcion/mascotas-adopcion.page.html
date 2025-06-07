@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mascotas en Adopción</ion-title>
+    <ion-buttons slot="end">
+      <ion-avatar>
+        <img src="assets/logo.png" alt="Logo" />
+      </ion-avatar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="mascotas-content" style="background-image: url('assets/fondo1.jpg'); background-size: cover;">
+  <div class="intro-text">
+    <h2>¿Sabías que?</h2>
+    <p>
+      Aquí no solo damos en adopción <strong>perros y gatos</strong>, también tenemos <strong>otras mascotas</strong> que ¡seguro te van a encantar!
+    </p>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" *ngFor="let mascota of mascotas">
+        <ion-card class="mascota-card">
+          <img [src]="mascota.imagen" alt="Foto de {{ mascota.nombre }}" />
+          <ion-card-header>
+            <ion-card-title>{{ mascota.nombre }}</ion-card-title>
+            <ion-card-subtitle>{{ mascota.edad }} - {{ mascota.genero }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ mascota.descripcion }}</p>
+            <ion-button color="tertiary" expand="block" [routerLink]="['/formulario']">Quiero Adoptar</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

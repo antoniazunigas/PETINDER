@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>REGISTRARSE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="registro-content">
+  <div class="registro-container">
+    
+    <!-- Título grande y centrado -->
+    <h1 class="titulo-registro">REGÍSTRATE</h1>
+
+    <ion-card class="registro-card">
+      <ion-card-header>
+        <ion-card-title>Crear cuenta</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Nombre de usuario</ion-label>
+          <ion-input [(ngModel)]="usuario.nombre" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Correo electrónico</ion-label>
+          <ion-input type="email" [(ngModel)]="usuario.correo" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" [(ngModel)]="usuario.clave" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Edad</ion-label>
+          <ion-input type="number" [(ngModel)]="usuario.edad" required></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" color="success" (click)="registrarse()">Registrarse</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+

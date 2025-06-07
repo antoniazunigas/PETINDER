@@ -1,27 +1,203 @@
-#container {
+.home-content {
+  --background: none;
+  background-image: url('/assets/fondo1.jpg'); 
+  background-size: cover;
+  background-position: center;
+  color: #004d40; 
+  font-family: 'Montserrat', sans-serif;
+  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.logo-header-container {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.logo-header {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0, 77, 64, 0.7);
+  object-fit: cover;
+}
+
+.welcome-message {
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  margin-bottom: 25px;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.welcome-message h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #00695c;
+  text-shadow: 0 0 5px #b2dfdb;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.welcome-message h2 {
+  font-size: 1.3rem;
+  color: #00796b;
 }
 
-#container a {
-  text-decoration: none;
+.highlight-section {
+  background: rgba(76, 191, 166, 0.85);
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 10px rgb(86, 107, 104);
+  color: #e0f2f1;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
 }
+
+.benefits-section {
+  background: rgba(0, 105, 92, 0.8);
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 25px;
+  color: #a7ffeb;
+  box-shadow: 0 3px 10px rgba(0, 77, 64, 0.6);
+}
+
+.benefits-section h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.benefits-section ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.sabias-esto-section {
+  background: rgba(255, 206, 254, 0.85);
+  border-radius: 15px;
+  padding: 20px;
+  color: #004d40;
+  box-shadow: 0 3px 12px rgba(0, 77, 64, 0.3);
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+
+.sabias-esto-section h3 {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #00796b;
+}
+
+.call-to-action {
+  font-style: italic;
+  margin-top: 20px;
+  font-weight: 700;
+  text-align: center;
+  color: #004d40;
+  background: #a7ffeb;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px #004d40;
+}
+
+.custom-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+/* Estilos para el carrusel Swiper */
+.pet-carousel {
+  height: 320px; 
+  margin-bottom: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 77, 64, 0.3);
+}
+
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.5s ease;
+}
+
+/* Efecto opcional de zoom al presionar con el mouse */
+.carousel-img:hover {
+  transform: scale(1.20);
+}
+
+.benefits-section {
+  padding: 16px;
+
+  .benefits-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .text {
+      flex: 1;
+    }
+
+    .image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+}
+
+/*diseño del footer*/
+.custom-footer {
+  text-align: center;
+  background-color: #ffffff; 
+
+  ion-toolbar {
+    --background: #8eefc8 !important; 
+  }
+
+  .footer-content {
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    color: #f548f2;
+
+    p {
+      margin: 4px 0;
+      font-size: 14px;
+    }
+
+    .author {
+      font-weight: bold;
+      color: #2a9d8f;
+    }
+  }
+}
+
+
+
+
+

@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="titulo-header">HISTORIAS FELICES</ion-title>
+    <ion-buttons slot="end">
+      <ion-avatar>
+        <img src="assets/logo.png" alt="Logo" />
+      </ion-avatar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="historias-content" fullscreen>
+  <div class="titulo-principal">
+    <h1>De la calle a la familia: historias que inspiran</h1>
+  </div>
+
+  <div class="galeria">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let img of imagenes">
+          <ion-img [src]="img" class="img-galeria"></ion-img>
+        </ion-col>
+          <ion-col size="12" *ngFor="let video of videos">
+            <div class="video-wrapper">
+              <video controls>
+                <source [src]="video" type="video/mp4" />
+              </video>
+            </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="testimonios">
+  <h2 class="titulo-testimonios">Testimonios</h2>
+  <ion-card *ngFor="let t of testimonios" class="testimonio-card">
+    <ion-card-header>
+      <ion-card-title class="nombre-testimonio">{{ t.nombre }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ t.mensaje }}</p>
+    </ion-card-content>
+  </ion-card>
+</div>
+
+  <ion-button expand="block" color="tertiary" (click)="irAMascotas()">
+    Quiero adoptar y ser parte de estas historias felices
+  </ion-button>
+</ion-content>

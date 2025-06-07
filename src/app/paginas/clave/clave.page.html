@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cambiar contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="clave-content">
+  <div class="outer-container">
+    <h1 class="titulo-principal">CAMBIAR CONTRASEÑA</h1>
+    <div class="form-container">
+      <h2>Crear contraseña nueva</h2>
+      <ion-item>
+        <ion-input type="password" placeholder="Nueva contraseña" [(ngModel)]="nuevaClave"></ion-input>
+      </ion-item>
+
+      <h2>Confirmar contraseña nueva</h2>
+      <ion-item>
+        <ion-input type="password" placeholder="Confirmar contraseña" [(ngModel)]="confirmarClave"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" color="tertiary" (click)="cambiarClave()">Aceptar</ion-button>
+    </div>
+  </div>
+</ion-content>
+
+

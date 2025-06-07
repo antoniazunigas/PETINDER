@@ -1,0 +1,39 @@
+ion-menu {
+  --background: #e0f7fa;
+}
+
+ion-toolbar {
+  --background: var(--ion-color-petinder);
+  --color: #fff;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+
+  img {
+    max-width: 100px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+ion-item {
+  --color: #2a9d8f;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+
+  ion-icon {
+    color: #f48fb1;
+    font-size: 20px;
+  }
+}
+
+.menu-footer {
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 14px;
+  font-style: italic;
+  color: #f266e4;
+}

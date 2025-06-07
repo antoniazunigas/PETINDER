@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Adopción</ion-title>
+    <ion-buttons slot="end">
+      <ion-avatar slot="end">
+        <img src="assets/logo.png" alt="Logo" />
+      </ion-avatar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="page-container">
+    <div class="titulo">Información y Requisitos para el Proceso de Adopción</div>
+
+    <!-- 🏠 ¿De dónde provienen los animales? -->
+    <ion-card class="section-card">
+      <img src="assets/refugio.jpg" class="card-image" alt="Origen" />
+      <div class="card-header">🏠 ¿De dónde provienen los animales?</div>
+      <div class="card-content">
+        <ul>
+          <li>Refugios municipales o particulares.</li>
+          <li>Fundaciones o agrupaciones de rescate.</li>
+          <li>Rescatados de abandono o maltrato.</li>
+          <li>Camadas rescatadas de la calle.</li>
+          <li>Entregados por familias que no podían cuidarlos.</li>
+        </ul>
+      </div>
+    </ion-card>
+
+    <!-- 👩‍⚕️ Estado de salud -->
+    <ion-card class="section-card">
+      <img src="assets/correcto.png" class="card-image" alt="Salud" />
+      <div class="card-header">👩‍⚕️ Estado de salud</div>
+      <div class="card-content">
+        <ul>
+          <li>Evaluación veterinaria previa a adopción.</li>
+          <li>Condiciones especiales informadas (sordera, ceguera, etc.).</li>
+          <li>Controles o medicamentos informados.</li>
+        </ul>
+      </div>
+    </ion-card>
+
+    <!-- 💉 Protocolos de cuidado -->
+    <ion-card class="section-card">
+      <img src="assets/check.png" class="card-image" alt="Protocolos" />
+      <div class="card-header">💉 Protocolos de cuidado aplicados</div>
+      <div class="card-content">
+        <ul>
+          <li>Vacunación al día.</li>
+          <li>Desparasitación interna y externa.</li>
+          <li>Esterilización.</li>
+        </ul>
+      </div>
+    </ion-card>
+
+    <!-- 📋 Proceso de adopción -->
+    <ion-card class="section-card">
+      <img src="assets/adopcion.png" class="card-image" alt="Proceso" />
+      <div class="card-header">📋 Proceso de adopción paso a paso</div>
+      <div class="card-content">
+        <ul>
+          <li>Llenar formulario en línea.</li>
+          <li>Entrevista o contacto.</li>
+          <li>Visita al hogar.</li>
+          <li>Firma de compromiso.</li>
+          <li>Entrega del animal.</li>
+        </ul>
+      </div>
+    </ion-card>
+
+    <!-- 📄 Requisitos -->
+    <ion-card class="section-card requisitos-card">
+      <div class="card-header">📄 Requisitos para adoptar</div>
+      <div class="card-content">
+        <p><strong>👤 Requisitos personales:</strong></p>
+        <ul>
+          <li>Mayor de edad.</li>
+          <li>Tiempo, espacio y estabilidad económica.</li>
+          <li>Consentimiento del hogar.</li>
+        </ul>
+        <p><strong>🏡 Requisitos del hogar:</strong></p>
+        <ul>
+          <li>Espacio seguro (rejas, ventanas protegidas).</li>
+          <li>Permiso del propietario (si arrienda).</li>
+        </ul>
+        <p><strong>💬 Compromisos del adoptante:</strong></p>
+        <ul>
+          <li>Buena alimentación, veterinario y cariño.</li>
+          <li>No abandonar nunca al animal.</li>
+          <li>Informar si no puede seguir cuidándolo.</li>
+        </ul>
+      </div>
+    </ion-card>
+
+    <!-- 📌 Documentos -->
+    <ion-card class="section-card">
+      <div class="card-header">📌 Documentos y condiciones</div>
+      <div class="card-content">
+        <ul>
+          <li>Copia de cédula de identidad.</li>
+          <li>Contrato de adopción firmado.</li>
+          <li>Ficha del animal (vacunas, chip, etc.).</li>
+          <li>Seguimiento post-adopción.</li>
+        </ul>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>
+

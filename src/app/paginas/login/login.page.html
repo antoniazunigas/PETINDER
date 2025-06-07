@@ -1,0 +1,81 @@
+<!-- Contenido principal del login con clase personalizada para estilos -->
+<ion-content class="login-content">
+
+  <!-- Fuente personalizada desde Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Contenedor del logo -->
+  <div class="logo-container">
+    <img src="assets/logo.png" alt="Logo Petinder" class="logo-img">
+  </div>
+
+  <!-- Título de la aplicación -->
+  <h1 class="app-title">PETINDER</h1>
+
+  <!-- Slogan debajo del título -->
+  <p class="slogan">Donde todos encuentran a su humano ideal</p>
+
+  <!-- Tarjeta de inicio de sesión -->
+  <ion-card>
+    <ion-card-content>
+
+      <!-- Título de la sección de usuario -->
+      <h3 class="usuario-label">Inicia sesión</h3>
+
+      <!-- Campo de nombre de usuario -->
+      <ion-item>
+        <ion-icon name="person" slot="start"></ion-icon>
+        <ion-label position="floating">Nombre de usuario</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="nombreUsuario"  
+          required
+          autocomplete="off">
+        </ion-input>
+      </ion-item>
+
+      <!-- Campo de correo electrónico -->
+      <ion-item>
+        <ion-icon name="mail" slot="start"></ion-icon>
+        <ion-label position="floating">Correo electrónico</ion-label>
+        <ion-input
+          type="email"
+          [(ngModel)]="correo"
+          required
+          autocomplete="off">
+        </ion-input>
+      </ion-item>
+
+      <!-- Campo de contraseña -->
+      <ion-item>
+        <ion-icon name="lock-closed" slot="start"></ion-icon>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input
+          type="password"
+          [(ngModel)]="password"
+          required
+          autocomplete="off">
+        </ion-input>
+      </ion-item>
+
+      <!-- Botón para iniciar sesión -->
+      <ion-button expand="block" class="custom-button" (click)="ingresar()">Ingresar</ion-button>
+
+      <!-- Enlaces de ayuda y registro -->
+      <ion-text>
+        <p class="center-text">
+          <a routerLink="/clave">¿Olvidaste tu contraseña?</a>
+        </p>
+        <p class="center-text">
+          <a routerLink="/registro">¿No tienes cuenta? Regístrate acá</a>
+        </p>
+      </ion-text>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+
+
+
