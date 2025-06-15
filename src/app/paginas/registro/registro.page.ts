@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, ToastController } from '@ionic/angular';
+import { DBTaskService } from '../../services/dbtask.service';
 
 @Component({
   selector: 'app-registro',
@@ -12,33 +13,98 @@ export class RegistroPage {
     nombre: '',
     correo: '',
     clave: '',
-    edad: null
+    edad: '',
+    telefono: '',
+    direccion: '',
+    region: '',
+    comuna: '',
   };
 
-  constructor(private navCtrl: NavController, private toastCtrl: ToastController) {}
+  constructor(
+    private navCtrl: NavController,
+    private toastCtrl: ToastController,
+    private db: DBTaskService
+  ) {}
 
   async registrarse() {
-    if (this.usuario.nombre && this.usuario.correo && this.usuario.clave && this.usuario.edad) {
-      // Aquí podrías guardar en localStorage o usar una API
-      const toast = await this.toastCtrl.create({
-        message: '¡Registrado exitosamente!',
-        duration: 2000,
-        color: 'success'
-      });
-      await toast.present();
+    const {
+      nombre,
+      correo,
+      clave,
+      edad,
+      telefono,
+      direccion,
+      region,
+      comuna,
+    } = this.usuario;
 
-      // Redirigir al login después de un pequeño tiempo
+    const edadNum = Number(edad);
+
+    // Validación de campos vacíos
+    if (
+      !nombre ||
+      !correo ||
+      !clave ||
+      !edad ||
+      !telefono ||
+      !direccion ||
+      !region ||
+      !comuna
+    ) {
+      return this.mostrarToast(
+        'Por favor completa todos los campos.',
+        'danger'
+      );
+    }
+
+    // Validación de edad
+    if (isNaN(edadNum) || edadNum < 18) {
+      return this.mostrarToast('Debes ser mayor de 18 años.', 'danger');
+    }
+
+    try {
+      await this.db.registrarUsuario(
+        nombre.trim(),
+        correo.trim().toLowerCase(),
+        clave,
+        edadNum,
+        telefono.trim(),
+        direccion.trim(),
+        region.trim(),
+        comuna.trim()
+      );
+      this.mostrarToast('¡Registrado exitosamente!', 'success');
+
+      // Redirigir al login después de un pequeño delay
       setTimeout(() => {
         this.navCtrl.navigateBack('/login');
-      }, 2000);
-    } else {
-      const toast = await this.toastCtrl.create({
-        message: 'Por favor completa todos los campos.',
-        duration: 2000,
-        color: 'danger'
-      });
-      toast.present();
+      }, 1500);
+    } catch (e: any) {
+      const mensaje =
+        /UNIQUE/.test(e?.message) || /correo.*duplicado/i.test(e?.message)
+          ? 'Este correo ya está registrado.'
+          : `Error al registrar: ${e.message || 'Intenta nuevamente.'}`;
+      this.mostrarToast(mensaje, 'danger');
     }
   }
+
+  private async mostrarToast(message: string, color: string = 'primary') {
+    const toast = await this.toastCtrl.create({
+      message,
+      duration: 2500,
+      color,
+      position: 'top',
+    });
+    toast.present();
+  }
 }
+
+
+
+
+
+
+
+
+
 

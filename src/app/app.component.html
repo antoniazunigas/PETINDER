@@ -31,6 +31,15 @@
         <ion-icon slot="start" name="heart-outline"></ion-icon>
         Historias Felices
       </ion-item>
+      <ion-item button routerLink="/mi-perfil" routerDirection="forward" (click)="cerrarMenu()">
+        <ion-icon slot="start" name="person-outline"></ion-icon>
+        Mi Perfil
+      </ion-item>
+      <!-- ✅ Este botón estaba fuera, ahora lo incluimos correctamente -->
+      <ion-item button (click)="cerrarSesion(); cerrarMenu()">
+        <ion-icon slot="start" name="log-out-outline"></ion-icon>
+        Cerrar sesión
+      </ion-item>
     </ion-list>
 
     <div class="menu-footer">
@@ -41,5 +50,6 @@
 
 <!-- Contenido principal -->
 <ion-router-outlet id="main-content"></ion-router-outlet>
+
 
 

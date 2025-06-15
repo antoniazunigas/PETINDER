@@ -4,7 +4,8 @@ import { IonicModule, ModalController, ToastController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatetimeModalComponent } from './datetime-modal.component';
-import { Router } from '@angular/router'; // ⬅️ Importación necesaria para navegar
+import { Router } from '@angular/router';
+import { DBTaskService } from '../../services/dbtask.service';
 
 @Component({
   selector: 'app-formulario',
@@ -20,7 +21,8 @@ export class FormularioPage {
     private fb: FormBuilder,
     private toastCtrl: ToastController,
     private modalCtrl: ModalController,
-    private router: Router // ⬅️ Inyección del Router
+    private router: Router,
+    private dbService: DBTaskService
   ) {
     this.formulario = this.fb.group({
       nombre: ['', Validators.required],
@@ -35,51 +37,53 @@ export class FormularioPage {
     });
   }
 
-  // ✅ Método para navegar a /como-adoptar
   irAComoAdoptar() {
     this.router.navigate(['/como-adoptar']);
   }
 
-  // Validación de mayoría de edad
   mayorDeEdadValidator = (control: any) => {
     if (!control.value) return null;
     const nacimiento = new Date(control.value);
     const hoy = new Date();
     let edad = hoy.getFullYear() - nacimiento.getFullYear();
     const cumpleEsteAnio = new Date(hoy.getFullYear(), nacimiento.getMonth(), nacimiento.getDate());
-    if (hoy < cumpleEsteAnio) {
-      edad--;
-    }
+    if (hoy < cumpleEsteAnio) edad--;
     return edad >= 18 ? null : { menorDeEdad: true };
   };
 
   async seleccionarFecha() {
-    const modal = await this.modalCtrl.create({
-      component: DatetimeModalComponent,
-    });
-
+    const modal = await this.modalCtrl.create({ component: DatetimeModalComponent });
     await modal.present();
-
     const { data } = await modal.onWillDismiss();
-    if (data?.fecha) {
-      this.formulario.get('fechaNacimiento')?.setValue(data.fecha);
-    }
+    if (data?.fecha) this.formulario.get('fechaNacimiento')?.setValue(data.fecha);
   }
 
   async enviarFormulario() {
     if (this.formulario.valid) {
-      const toast = await this.toastCtrl.create({
-        message: 'Formulario enviado exitosamente, prepárate para que llegue tu mejor compañero 🐾',
-        duration: 4000,
-        color: 'success',
-        position: 'top',
-        icon: 'checkmark-circle',
-      });
-      await toast.present();
-      this.formulario.reset();
+      try {
+        await this.dbService.guardarFormulario(this.formulario.value);
+        const toast = await this.toastCtrl.create({
+          message: 'Formulario enviado exitosamente 🐾',
+          duration: 4000,
+          color: 'success',
+          position: 'top',
+          icon: 'checkmark-circle',
+        });
+        await toast.present();
+        this.formulario.reset();
+      } catch (error) {
+        const toast = await this.toastCtrl.create({
+          message: 'Error al guardar el formulario.',
+          duration: 3000,
+          color: 'danger',
+          position: 'top',
+          icon: 'alert-circle',
+        });
+        await toast.present();
+      }
     } else {
       const toast = await this.toastCtrl.create({
-        message: 'Por favor, completa todos los campos correctamente.',
+        message: 'Completa todos los campos correctamente.',
         duration: 3000,
         color: 'danger',
         position: 'top',
@@ -89,6 +93,7 @@ export class FormularioPage {
     }
   }
 }
+
 
 
 

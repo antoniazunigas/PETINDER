@@ -1,40 +1,25 @@
-<!-- Contenido principal del login con clase personalizada para estilos -->
-<ion-content class="login-content">
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>INICIAR SESIÓN</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-  <!-- Fuente personalizada desde Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<ion-content [fullscreen]="true" class="login-content">
 
-  <!-- Contenedor del logo -->
+  <!-- Logo -->
   <div class="logo-container">
-    <img src="assets/logo.png" alt="Logo Petinder" class="logo-img">
+    <img src="assets/logo.png" alt="Logo Petinder" class="logo-img" />
   </div>
 
-  <!-- Título de la aplicación -->
+  <!-- Título de la app -->
   <h1 class="app-title">PETINDER</h1>
-
-  <!-- Slogan debajo del título -->
   <p class="slogan">Donde todos encuentran a su humano ideal</p>
 
-  <!-- Tarjeta de inicio de sesión -->
   <ion-card>
     <ion-card-content>
-
-      <!-- Título de la sección de usuario -->
       <h3 class="usuario-label">Inicia sesión</h3>
 
-      <!-- Campo de nombre de usuario -->
-      <ion-item>
-        <ion-icon name="person" slot="start"></ion-icon>
-        <ion-label position="floating">Nombre de usuario</ion-label>
-        <ion-input
-          type="text"
-          [(ngModel)]="nombreUsuario"  
-          required
-          autocomplete="off">
-        </ion-input>
-      </ion-item>
-
-      <!-- Campo de correo electrónico -->
+      <!-- Correo -->
       <ion-item>
         <ion-icon name="mail" slot="start"></ion-icon>
         <ion-label position="floating">Correo electrónico</ion-label>
@@ -46,7 +31,7 @@
         </ion-input>
       </ion-item>
 
-      <!-- Campo de contraseña -->
+      <!-- Contraseña -->
       <ion-item>
         <ion-icon name="lock-closed" slot="start"></ion-icon>
         <ion-label position="floating">Contraseña</ion-label>
@@ -58,23 +43,24 @@
         </ion-input>
       </ion-item>
 
-      <!-- Botón para iniciar sesión -->
-      <ion-button expand="block" class="custom-button" (click)="ingresar()">Ingresar</ion-button>
+      <!-- Botón de ingreso -->
+      <ion-button expand="block" color="primary" (click)="ingresar()">
+        Ingresar
+      </ion-button>
 
-      <!-- Enlaces de ayuda y registro -->
+      <!-- Enlaces -->
       <ion-text>
         <p class="center-text">
-          <a routerLink="/clave">¿Olvidaste tu contraseña?</a>
+          <a (click)="olvideContrasena()">¿Olvidaste tu contraseña?</a>
         </p>
         <p class="center-text">
-          <a routerLink="/registro">¿No tienes cuenta? Regístrate acá</a>
+          <a (click)="registrarse()">¿No tienes cuenta? Regístrate acá</a>
         </p>
       </ion-text>
-
     </ion-card-content>
   </ion-card>
-
 </ion-content>
+
 
 
 

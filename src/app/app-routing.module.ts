@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';  // Asegúrate que esta ruta es correcta
 
 const routes: Routes = [
   {
@@ -12,33 +13,47 @@ const routes: Routes = [
     loadChildren: () => import('./paginas/login/login.module').then(m => m.LoginPageModule)
   },
   {
+    path: 'registro',
+    loadChildren: () => import('./paginas/registro/registro.module').then(m => m.RegistroPageModule)
+  },
+  {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'mascotas-adopcion',
-    loadChildren: () => import('./paginas/mascotas-adopcion/mascotas-adopcion.module').then( m => m.MascotasAdopcionPageModule)
+    loadChildren: () => import('./paginas/mascotas-adopcion/mascotas-adopcion.module').then(m => m.MascotasAdopcionPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'formulario',
-    loadChildren: () => import('./paginas/formulario/formulario.module').then( m => m.FormularioPageModule)
+    loadChildren: () => import('./paginas/formulario/formulario.module').then(m => m.FormularioPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'como-adoptar',
-    loadChildren: () => import('./paginas/como-adoptar/como-adoptar.module').then( m => m.ComoAdoptarPageModule)
+    loadChildren: () => import('./paginas/como-adoptar/como-adoptar.module').then(m => m.ComoAdoptarPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'historias-felices',
-    loadChildren: () => import('./paginas/historias-felices/historias-felices.module').then( m => m.HistoriasFelicesPageModule)
+    loadChildren: () => import('./paginas/historias-felices/historias-felices.module').then(m => m.HistoriasFelicesPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'clave',
-    loadChildren: () => import('./paginas/clave/clave.module').then( m => m.ClavePageModule)
+    loadChildren: () => import('./paginas/clave/clave.module').then(m => m.ClavePageModule),
+    canActivate: [AuthGuard]
   },
   {
-    path: 'registro',
-    loadChildren: () => import('./paginas/registro/registro.module').then( m => m.RegistroPageModule)
-  }
+    path: 'mi-perfil',
+    loadChildren: () => import('./paginas/mi-perfil/mi-perfil.module').then( m => m.MiPerfilPageModule)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./paginas/page404/page404.module').then(m => m.Page404PageModule)
+  },
 ];
 
 @NgModule({
@@ -48,3 +63,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+

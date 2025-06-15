@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-avatar>
+        <img src="assets/logo.png" alt="Logo" />
+      </ion-avatar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  [fullscreen]="true"
+  class="formulario-content"
+  style="background-image: url('assets/fondo1.jpg'); background-size: cover;"
+>
+  <div class="form-title-container">
+    <h1>Editar Perfil</h1>
+  </div>
+
+  <ion-card class="formulario-card">
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating" style="color: white;">Nombre</ion-label>
+        <ion-input [(ngModel)]="usuario.nombre" [disabled]="!editando" style="color: white;"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" style="color: white;">Correo</ion-label>
+        <ion-input [(ngModel)]="usuario.correo" disabled style="color: white;"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" style="color: white;">Edad</ion-label>
+        <ion-input type="number" [(ngModel)]="usuario.edad" [disabled]="!editando" style="color: white;"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" style="color: white;">Teléfono</ion-label>
+        <ion-input [(ngModel)]="usuario.telefono" [disabled]="!editando" style="color: white;"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" style="color: white;">Dirección</ion-label>
+        <ion-input [(ngModel)]="usuario.direccion" [disabled]="!editando" style="color: white;"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" style="color: white;">Región</ion-label>
+        <ion-input [(ngModel)]="usuario.region" [disabled]="!editando" style="color: white;"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" style="color: white;">Comuna</ion-label>
+        <ion-input [(ngModel)]="usuario.comuna" [disabled]="!editando" style="color: white;"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" color="light" *ngIf="!editando" (click)="activarEdicion()">Editar Perfil</ion-button>
+      <ion-button expand="block" color="success" *ngIf="editando" (click)="guardarCambios()">Guardar Cambios</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+
+
+
+
+
+
+
