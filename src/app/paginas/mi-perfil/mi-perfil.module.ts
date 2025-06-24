@@ -5,6 +5,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { MiPerfilPage } from './mi-perfil.page';
 import { RouterModule, Routes } from '@angular/router';
+import { EncabezadoConLogoComponent } from 'src/app/components/encabezado-con-logo/encabezado-con-logo.component';
+
 
 const routes: Routes = [
   {
@@ -18,7 +20,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    EncabezadoConLogoComponent
   ],
   declarations: [MiPerfilPage]
 })

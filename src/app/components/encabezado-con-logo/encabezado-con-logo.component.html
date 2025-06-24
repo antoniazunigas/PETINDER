@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button *ngIf="!usarMenu" [defaultHref]="rutaAtras"></ion-back-button>
+      <ion-menu-button *ngIf="usarMenu" autoHide="false"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">{{ titulo }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-avatar slot="end">
+        <img src="assets/logo.png" alt="Logo App" />
+      </ion-avatar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+

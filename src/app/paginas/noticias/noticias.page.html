@@ -1,0 +1,26 @@
+<app-encabezado-con-logo [titulo]="'¡NOTICIAS!'" [rutaAtras]="'/home'"></app-encabezado-con-logo>
+
+<ion-content class="ion-padding clave-content">
+  <ion-card *ngFor="let noticia of noticias">
+    <img
+      [src]="noticia.image || imagenNoDisponible"
+      (error)="onImageError($event)"
+    />
+    <ion-card-header>
+      <ion-card-title>{{ noticia.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ noticia.description }}</p>
+      <ion-button fill="clear" size="small" [href]="noticia.url" target="_blank">
+        Leer más
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+
+
+
+
+
+

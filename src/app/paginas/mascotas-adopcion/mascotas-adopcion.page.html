@@ -1,16 +1,4 @@
-<ion-header>
-  <ion-toolbar color="success">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Mascotas en Adopción</ion-title>
-    <ion-buttons slot="end">
-      <ion-avatar>
-        <img src="assets/logo.png" alt="Logo" />
-      </ion-avatar>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<app-encabezado-con-logo [titulo]="'MASCOTAS EN ADOPCIÓN'" [rutaAtras]="'/home'"></app-encabezado-con-logo>
 
 <ion-content [fullscreen]="true" class="mascotas-content" style="background-image: url('assets/fondo1.jpg'); background-size: cover;">
   <div class="intro-text">

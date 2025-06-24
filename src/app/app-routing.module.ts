@@ -44,16 +44,27 @@ const routes: Routes = [
   {
     path: 'clave',
     loadChildren: () => import('./paginas/clave/clave.module').then(m => m.ClavePageModule),
-    canActivate: [AuthGuard]
   },
   {
     path: 'mi-perfil',
-    loadChildren: () => import('./paginas/mi-perfil/mi-perfil.module').then( m => m.MiPerfilPageModule)
+    loadChildren: () => import('./paginas/mi-perfil/mi-perfil.module').then( m => m.MiPerfilPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'noticias',
+    loadChildren: () => import('./paginas/noticias/noticias.module').then( m => m.NoticiasPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'testimonios',
+    loadChildren: () => import('./paginas/testimonios/testimonios.module').then( m => m.TestimoniosPageModule)
   },
   {
     path: '**',
     loadChildren: () => import('./paginas/page404/page404.module').then(m => m.Page404PageModule)
   },
+  
+  
 ];
 
 @NgModule({

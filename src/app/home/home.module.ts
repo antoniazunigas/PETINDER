@@ -7,8 +7,9 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { SwiperModule } from 'swiper/angular';
 import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
+import { EncabezadoConLogoComponent } from 'src/app/components/encabezado-con-logo/encabezado-con-logo.component';
 
-// Importante: activa los módulos que usarás
+
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 @NgModule({
@@ -17,7 +18,8 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    SwiperModule
+    SwiperModule,
+     EncabezadoConLogoComponent
   ],
   declarations: [HomePage]
 })

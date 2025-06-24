@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ComoAdoptarPageRoutingModule } from './como-adoptar-routing.module';
 
 import { ComoAdoptarPage } from './como-adoptar.page';
+import { EncabezadoConLogoComponent } from 'src/app/components/encabezado-con-logo/encabezado-con-logo.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ComoAdoptarPageRoutingModule
+    ComoAdoptarPageRoutingModule,
+    EncabezadoConLogoComponent
   ],
   declarations: [ComoAdoptarPage]
 })

@@ -11,8 +11,7 @@ import { DBTaskService } from '../../services/dbtask.service';
   selector: 'app-formulario',
   templateUrl: './formulario.page.html',
   styleUrls: ['./formulario.page.scss'],
-  standalone: true,
-  imports: [IonicModule, ReactiveFormsModule, FormsModule, CommonModule],
+  standalone: false,
 })
 export class FormularioPage {
   formulario: FormGroup;

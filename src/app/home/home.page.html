@@ -1,18 +1,5 @@
-<ion-header>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<app-encabezado-con-logo [titulo]="'PETINDER'" [usarMenu]="true"></app-encabezado-con-logo>
 
-  <ion-toolbar color="success">
-    <ion-buttons slot="start">
-      <ion-menu-button autoHide="false"></ion-menu-button>
-    </ion-buttons>
-
-    <ion-title class="custom-title">PETINDER</ion-title>
-
-    <ion-buttons slot="end" class="logo-header-container">
-      <img src="/assets/logo.png" alt="Logo Petinder" class="logo-header" />
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content class="ion-padding home-content" fullscreen [style.backgroundImage]="'url(/assets/fondo1.jpg)'">
   <div class="welcome-message">

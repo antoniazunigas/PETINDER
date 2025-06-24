@@ -1,0 +1,61 @@
+<app-encabezado-con-logo [titulo]="'TESTIMONIOS'" [rutaAtras]="'/home'"></app-encabezado-con-logo>
+
+<ion-content class="fondo-pagina ion-padding">
+
+  <!-- Lista testimonios -->
+  <ion-card *ngFor="let testimonio of testimonios; let i = index">
+    <ion-card-header>
+      <ion-card-title *ngIf="editIndex !== i">{{ testimonio.nombre }}</ion-card-title>
+
+      <!-- Campo para editar nombre -->
+      <ion-item *ngIf="editIndex === i">
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input [(ngModel)]="nombreNuevo"></ion-input>
+      </ion-item>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div *ngIf="editIndex !== i">{{ testimonio.comentario }}</div>
+
+      <!-- Campo para editar comentario -->
+      <ion-item *ngIf="editIndex === i">
+        <ion-label position="floating">Comentario</ion-label>
+        <ion-textarea rows="3" [(ngModel)]="comentarioNuevo"></ion-textarea>
+      </ion-item>
+    </ion-card-content>
+
+    <ion-item lines="none" *ngIf="editIndex !== i && testimonio.editable">
+      <ion-button color="primary" (click)="iniciarEdicion(i)">Editar</ion-button>
+      <ion-button color="danger" (click)="eliminarTestimonio(i)">Eliminar</ion-button>
+    </ion-item>
+
+
+    <ion-item lines="none" *ngIf="editIndex === i">
+      <ion-button color="success" (click)="guardarEdicion()">Guardar</ion-button>
+      <ion-button color="medium" (click)="cancelarEdicion()">Cancelar</ion-button>
+    </ion-item>
+  </ion-card>
+
+  <!-- Formulario para agregar nuevo testimonio -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Agregar nuevo testimonio</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input [(ngModel)]="nombreNuevo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Comentario</ion-label>
+        <ion-textarea rows="3" [(ngModel)]="comentarioNuevo"></ion-textarea>
+      </ion-item>
+      <ion-button expand="block" color="success" (click)="agregarTestimonio()">Agregar Testimonio</ion-button>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>
+
+
+
+

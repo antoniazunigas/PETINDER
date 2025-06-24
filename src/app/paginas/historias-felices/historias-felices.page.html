@@ -1,16 +1,4 @@
-<ion-header>
-  <ion-toolbar color="success">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
-    </ion-buttons>
-    <ion-title class="titulo-header">HISTORIAS FELICES</ion-title>
-    <ion-buttons slot="end">
-      <ion-avatar>
-        <img src="assets/logo.png" alt="Logo" />
-      </ion-avatar>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<app-encabezado-con-logo [titulo]="'HISTORIAS FELICES'" [rutaAtras]="'/home'"></app-encabezado-con-logo>
 
 <ion-content class="historias-content" fullscreen>
   <div class="titulo-principal">
@@ -33,18 +21,6 @@
       </ion-row>
     </ion-grid>
   </div>
-
-  <div class="testimonios">
-  <h2 class="titulo-testimonios">Testimonios</h2>
-  <ion-card *ngFor="let t of testimonios" class="testimonio-card">
-    <ion-card-header>
-      <ion-card-title class="nombre-testimonio">{{ t.nombre }}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p>{{ t.mensaje }}</p>
-    </ion-card-content>
-  </ion-card>
-</div>
 
   <ion-button expand="block" color="tertiary" (click)="irAMascotas()">
     Quiero adoptar y ser parte de estas historias felices

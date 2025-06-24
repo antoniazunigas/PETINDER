@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
-import { MascotasAdopcionPageRoutingModule } from './mascotas-adopcion-routing.module';
-import { MascotasAdopcionPage } from './mascotas-adopcion.page';
+import { TestimoniosPageRoutingModule } from './testimonios-routing.module';
+import { TestimoniosPage } from './testimonios.page';
+
+
 import { EncabezadoConLogoComponent } from 'src/app/components/encabezado-con-logo/encabezado-con-logo.component';
 
 @NgModule({
@@ -12,10 +14,10 @@ import { EncabezadoConLogoComponent } from 'src/app/components/encabezado-con-lo
     CommonModule,
     FormsModule,
     IonicModule,
-    MascotasAdopcionPageRoutingModule,
+    TestimoniosPageRoutingModule,
     EncabezadoConLogoComponent 
   ],
-  declarations: [MascotasAdopcionPage]
+  declarations: [TestimoniosPage]
 })
-export class MascotasAdopcionPageModule {}
+export class TestimoniosPageModule {}
 
