@@ -11,18 +11,37 @@
         <ion-col size="6" *ngFor="let img of imagenes">
           <ion-img [src]="img" class="img-galeria"></ion-img>
         </ion-col>
-          <ion-col size="12" *ngFor="let video of videos">
-            <div class="video-wrapper">
-              <video controls>
-                <source [src]="video" type="video/mp4" />
-              </video>
-            </div>
+        <ion-col size="12" *ngFor="let video of videos">
+          <div class="video-wrapper">
+            <video controls>
+              <source [src]="video" type="video/mp4" />
+            </video>
+          </div>
         </ion-col>
       </ion-row>
     </ion-grid>
+  </div>
+
+  <!-- Sección SUBIR FOTO-->
+  <div class="sube-foto">
+    <h2 class="titulo-foto">📸 ¡Comparte tu historia feliz!</h2>
+    <p class="descripcion-foto">Sube una foto para mostrarnos tu aventura con tu mascota adoptada 🐾</p>
+
+
+    <ion-button expand="block" color="primary" (click)="tomarFoto()">Tomar Foto</ion-button>
+    <ion-button expand="block" color="secondary" (click)="subirDesdeGaleria()">Subir desde Galería</ion-button>
+
+    <div *ngIf="foto" class="foto-preview">
+      <img [src]="foto" [style.transform]="'rotate(' + rotacion + 'deg)'" />
+      <ion-button color="warning" (click)="rotarFoto()">Rotar Foto</ion-button>
+      <ion-button color="success" (click)="confirmarFoto()">Aceptar y Guardar</ion-button>
+      <ion-button color="danger" (click)="volverATomar()">Repetir</ion-button>
+    </div>
   </div>
 
   <ion-button expand="block" color="tertiary" (click)="irAMascotas()">
     Quiero adoptar y ser parte de estas historias felices
   </ion-button>
 </ion-content>
+
+

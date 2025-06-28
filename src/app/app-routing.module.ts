@@ -57,7 +57,8 @@ const routes: Routes = [
   },
   {
     path: 'testimonios',
-    loadChildren: () => import('./paginas/testimonios/testimonios.module').then( m => m.TestimoniosPageModule)
+    loadChildren: () => import('./paginas/testimonios/testimonios.module').then( m => m.TestimoniosPageModule),
+     canActivate: [AuthGuard]
   },
   {
     path: '**',
