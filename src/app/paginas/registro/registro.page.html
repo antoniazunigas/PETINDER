@@ -21,53 +21,55 @@
         <!-- Nombre -->
         <ion-item>
           <ion-label position="floating">Nombre</ion-label>
-          <ion-input type="text" [(ngModel)]="usuario.nombre" required></ion-input>
+          <ion-input type="text" [(ngModel)]="usuario.nombre" required data-testid="nombreInput"></ion-input>
         </ion-item>
 
         <!-- Correo -->
         <ion-item>
           <ion-label position="floating">Correo electrónico</ion-label>
-          <ion-input type="email" [(ngModel)]="usuario.correo" required></ion-input>
+          <ion-input type="email" [(ngModel)]="usuario.correo" required data-testid="correoInput"></ion-input>
         </ion-item>
 
         <!-- Contraseña -->
         <ion-item>
           <ion-label position="floating">Contraseña</ion-label>
-          <ion-input type="password" [(ngModel)]="usuario.clave" required></ion-input>
+          <ion-input type="password" [(ngModel)]="usuario.clave" required data-testid="claveInput"></ion-input>
         </ion-item>
 
         <!-- Edad -->
         <ion-item>
           <ion-label position="floating">Edad</ion-label>
-          <ion-input type="number" [(ngModel)]="usuario.edad" required></ion-input>
+          <ion-input type="number" [(ngModel)]="usuario.edad" required data-testid="edadInput"></ion-input>
         </ion-item>
 
         <!-- Teléfono -->
         <ion-item>
           <ion-label position="floating">Teléfono</ion-label>
-          <ion-input type="tel" [(ngModel)]="usuario.telefono" required></ion-input>
+          <ion-input type="tel" [(ngModel)]="usuario.telefono" required data-testid="telefonoInput"></ion-input>
         </ion-item>
 
         <!-- Dirección -->
         <ion-item>
           <ion-label position="floating">Dirección</ion-label>
-          <ion-input type="text" [(ngModel)]="usuario.direccion" required></ion-input>
+          <ion-input type="text" [(ngModel)]="usuario.direccion" required data-testid="direccionInput"></ion-input>
         </ion-item>
 
         <!-- Región -->
         <ion-item>
           <ion-label position="floating">Región</ion-label>
-          <ion-input type="text" [(ngModel)]="usuario.region" required></ion-input>
+          <ion-input type="text" [(ngModel)]="usuario.region" required data-testid="regionInput"></ion-input>
         </ion-item>
 
         <!-- Comuna -->
         <ion-item>
           <ion-label position="floating">Comuna</ion-label>
-          <ion-input type="text" [(ngModel)]="usuario.comuna" required></ion-input>
+          <ion-input type="text" [(ngModel)]="usuario.comuna" required data-testid="comunaInput"></ion-input>
         </ion-item>
 
         <!-- Botón -->
-        <ion-button expand="block" color="success" (click)="registrarse()">Registrarse</ion-button>
+        <ion-button expand="block" color="success" (click)="registrarse()" data-testid="botonRegistrar">
+          Registrarse
+        </ion-button>
 
       </ion-card-content>
     </ion-card>
